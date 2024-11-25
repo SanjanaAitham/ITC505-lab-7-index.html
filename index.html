@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Lib Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FEA06C; /* Updated background color */
+            color: #000000; /* Black text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh; /* Full viewport height */
+            padding: 0;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        img {
+            width: 200px;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        form {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Ensures padding is included in the form's width */
+        }
+        label {
+            font-size: 18px;
+            margin-bottom: 6px;
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+        }
+        input {
+            margin: 8px 0;
+            padding: 14px;
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box; /* Prevents overflow by including padding in the width */
+        }
+        button {
+            padding: 14px 28px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #87ceeb; /* Sky blue background */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            width: 100%; /* Ensure the button takes the full width */
+            box-sizing: border-box;
+        }
+        button:hover {
+            background-color: #4682b4; /* Darker blue on hover */
+        }
+        #madLibResult {
+            margin-top: 40px;
+            font-size: 1.6em;
+            padding: 25px;
+            background-color: #ffffff; /* White background for result */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #333; /* Dark gray for the result text */
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mad Lib Game</h1>
+    <img src="https://www.looneylabs.com/sites/default/files/marketing_images/MadLibsTheGameLogo.png" alt="Mad Lib End Image">
+
+    <p>Fill out the fields to create your story!</p>
+
+    <form id="madLibForm">
+        <label for="noun">Noun (e.g., pizza): </label>
+        <input type="text" id="noun" required><br>
+
+        <label for="verb">Verb (e.g., jump): </label>
+        <input type="text" id="verb" required><br>
+
+        <label for="adjective">Adjective (e.g., silly): </label>
+        <input type="text" id="adjective" required><br>
+
+        <label for="place">Place (e.g., beach): </label>
+        <input type="text" id="place" required><br>
+
+        <label for="number">Number (e.g., 7): </label>
+        <input type="number" id="number" required><br><br>
+
+        <button type="button" onclick="generateMadLib()">Generate Mad Lib</button>
+    </form>
+
+    <div id="madLibResult"></div>
+
+    <script>
+        function generateMadLib() {
+            // Get the values from the form
+            const noun = document.getElementById('noun').value;
+            const verb = document.getElementById('verb').value;
+            const adjective = document.getElementById('adjective').value;
+            const place = document.getElementById('place').value;
+            const number = document.getElementById('number').value;
+
+            // Create the Mad Lib story
+            const madLibStory = `One day, a ${adjective} ${noun} went to the ${place}. There, it decided to ${verb} with ${number} other creatures. It was the most fun anyone had in a long time!`;
+
+            // Display the Mad Lib result
+            document.getElementById('madLibResult').innerText = madLibStory;
+        }
+    </script>
+
+    <footer>
+        <p>Last updated: 
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+
+    <script type="text/javascript">
+        // Retrieve the last modified date of the document
+        var x = document.lastModified;
+        // Display the date in the 'lastModified' span
+        document.getElementById('lastModified').textContent = x;
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
